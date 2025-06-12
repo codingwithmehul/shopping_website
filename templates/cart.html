@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  <div id="cart-items"></div>
+  <h2 id="total"></h2>
+  <button onclick="checkout()">Checkout</button>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCart() {
+      const container = document.getElementById('cart-items');
+      let total = 0;
+      container.innerHTML = '';
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        container.innerHTML += `
+          <div>
+            <h3>${item.name}</h3>
+            <p>Price: ₹${item.price} x ${item.quantity}</p>
+            <p>Subtotal: ₹${subtotal}</p>
+            <hr>
+          </div>
+        `;
+      });
+      document.getElementById('total').textContent = `Total: ₹${total}`;
+    }
+
+    function checkout() {
+      alert("Checkout not implemented yet, but cart cleared!");
+      localStorage.removeItem('cart');
+      window.location.reload();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

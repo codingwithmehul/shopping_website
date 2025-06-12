@@ -1,0 +1,23 @@
+<!-- templates/contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - Mehul Mega Mart</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form method="POST" action="/contact">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea name="message" rows="5" required></textarea><br><br>
+
+        <input type="submit" value="Send Message">
+    </form>
+</body>
+</html>
